@@ -1,2 +1,2 @@
 # Edu-Link
-Proyecto de sistemas de informacion IIi. Enfocado en un Sistema de Servicios y Tramites Estudiantiles
+Proyecto de Sistemas de Informacion III. Enfocado en un Sistema de Servicios y Tramites Estudiantiles
