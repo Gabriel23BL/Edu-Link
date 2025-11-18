@@ -8,13 +8,21 @@ rutas.get('/', (req, res) => {
   res.render('index', { titulo: 'Inicio - EduLink' });
 });
 
+
+/** Rutas Auth */
 // Ruta de Registro de Usuario
 rutas.get('/registro-usuario', (req, res) => {
-  res.render('registroUsuario', { titulo: 'Registro de Usuario' });
+  res.render('auth/registro', { titulo: 'Registro - EduLink' });
 });
 
-/**  Rutas de vistas partials*/
+// Ruta de login 
+rutas.get('/login', (req, res) => {
+  res.render('auth/login', { titulo: 'Login - EduLink' });
+});
 
+
+
+/**  Rutas de vistas partials*/
 // Header partial
 rutas.get('/partials/header', (req, res) => {
   res.render('partials/header');
