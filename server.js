@@ -4,6 +4,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { rutas } from './src/router/route.js';
+import routeUsuario from './src/router/routeUsuario.js';
 import { conexion } from './src/db/conexion.js';
 
 dotenv.config();
@@ -31,6 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rutas
 app.use(rutas);
+app.use(routeUsuario);
 
 // Conexión a la base de datos
 conexion();
