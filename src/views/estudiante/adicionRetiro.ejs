@@ -1,0 +1,47 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- Formulario de Adición -->
+  <div class="bg-white p-6 rounded shadow flex flex-col h-full">
+    <h2 class="text-2xl font-bold text-blue-700 mb-4">Solicitud de Adición</h2>
+    <form action="/estudiante/adicion" method="POST" class="flex flex-col flex-grow space-y-4">
+      <div>
+        <label for="materiaAdicion" class="block font-semibold">Materia a añadir</label>
+        <input type="text" id="materiaAdicion" name="materia" class="w-full border p-2 rounded" required />
+      </div>
+
+      <div>
+        <label for="seccionAdicion" class="block font-semibold">Sección</label>
+        <input type="text" id="seccionAdicion" name="seccion" class="w-full border p-2 rounded" required />
+      </div>
+
+      <!-- Botón alineado abajo -->
+      <div class="mt-auto">
+        <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 w-full">
+          Enviar solicitud de adición
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Formulario de Retiro -->
+  <div class="bg-white p-6 rounded shadow flex flex-col h-full">
+    <h2 class="text-2xl font-bold text-red-700 mb-4">Solicitud de Retiro</h2>
+    <form action="/estudiante/retiro" method="POST" class="flex flex-col flex-grow space-y-4">
+      <div>
+        <label for="materiaRetiro" class="block font-semibold">Materia a retirar</label>
+        <input type="text" id="materiaRetiro" name="materia" class="w-full border p-2 rounded" required />
+      </div>
+
+      <div>
+        <label for="motivoRetiro" class="block font-semibold">Motivo</label>
+        <textarea id="motivoRetiro" name="motivo" class="w-full border p-2 rounded" required></textarea>
+      </div>
+
+      <!-- Botón alineado abajo -->
+      <div class="mt-auto">
+        <button type="submit" class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800 w-full">
+          Enviar solicitud de retiro
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Validar correo en backend EduLink
       try {
-        const res = await fetch("/api/validar-correo", {
+        const res = await fetch("usuario/api/validar-correo", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ correo: email.value })
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      const res = await fetch("/api/registro-usuario", {
+      const res = await fetch("/usuario/api/registro-usuario", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datos),

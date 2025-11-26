@@ -11,22 +11,15 @@ export const conexion = async () => {
 
     // Crear tablas al iniciar conexión
     await db.exec(`
-      CREATE TABLE IF NOT EXISTS roles (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nombre TEXT NOT NULL UNIQUE
-      );
-    `);
-
-    await db.exec(`
       CREATE TABLE IF NOT EXISTS usuarios (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nombre TEXT NOT NULL,
         correo TEXT NOT NULL UNIQUE,
         clave TEXT NOT NULL,
         id_usuario TEXT NOT NULL UNIQUE, -- cédula con prefijo V-/E-
-        rol_id INTEGER NOT NULL,
-        creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (rol_id) REFERENCES roles(id)
+        rol TEXT NOT NULL,               -- estudiante / docente / admin
+        foto TEXT,                       -- ruta relativa de la foto de perfil
+        creado_en DATETIME DEFAULT CURRENT_TIMESTAMP
       );
     `);
 

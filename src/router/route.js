@@ -1,44 +1,51 @@
 import { Router } from 'express';
 import { ControladorUsuario } from '../Controller/ControllerUsuario.js';
 
-export const rutas = Router();
+const rutas = Router();
 
-// Ruta de Raiz
+/** Rutas principales */
+// Ruta de Raíz
 rutas.get('/', (req, res) => {
-  res.render('index', { titulo: 'Inicio - EduLink' });
+  res.render('index', { title: 'Inicio - EduLink' });
 });
-
 
 /** Rutas Auth */
-// Ruta de Registro de Usuario
+// Registro de Usuario
 rutas.get('/registro-usuario', (req, res) => {
-  res.render('auth/registro', { titulo: 'Registro - EduLink' });
+  res.render('auth/registro', { title: 'Registro - EduLink' });
 });
 
-// Ruta de login 
+// Login (vista)
 rutas.get('/login', (req, res) => {
-  res.render('auth/login', { titulo: 'Login - EduLink' });
+  res.render('auth/login', { title: 'Login - EduLink' });
 });
 
+// Registro de usuario (POST)
+rutas.post('/registro-usuario', (req, res) => {
+  ControladorUsuario.crearUsuario(req, res);
+});
 
+// Validar correo
+rutas.post('/validar-correo', (req, res) => {
+  ControladorUsuario.validarCorreo(req, res);
+});
 
-/**  Rutas de vistas partials*/
-// Header partial
+/** Rutas de vistas partials */
 rutas.get('/partials/header', (req, res) => {
   res.render('partials/header');
 });
 
-// layout partial
 rutas.get('/partials/layout', (req, res) => {
   res.render('partials/layout');
 });
 
-// Footer partial
 rutas.get('/partials/footer', (req, res) => {
   res.render('partials/footer');
 });
 
+/** Rutas Estudiante */
+rutas.get('/panel', (req, res) => {
+  res.render('estudiante/panel', { title: 'Panel del Estudiante' });
+});
 
-
-// Ruta para manejar el registro de usuario
-rutas.post("/api/registro-usuario", ControladorUsuario.crearUsuario);
+export default rutas;

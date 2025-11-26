@@ -1,0 +1,29 @@
+
+<h2 class="text-2xl font-bold mb-4 text-blue-700">Formulario de Inscripción</h2>
+
+<form action="/estudiante/inscripcion" method="POST" class="bg-white p-6 rounded shadow space-y-4">
+  <div>
+    <label for="materia" class="block font-semibold">Materia</label>
+    <input type="text" id="materia" name="materia" class="w-full border p-2 rounded" required />
+  </div>
+
+  <div>
+    <label for="seccion" class="block font-semibold">Sección</label>
+    <input type="text" id="seccion" name="seccion" class="w-full border p-2 rounded" required />
+  </div>
+
+  <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">
+    Enviar solicitud
+  </button>
+</form>
+
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    const materia = document.getElementById("materia").value.trim();
+    const seccion = document.getElementById("seccion").value.trim();
+    if (!materia || !seccion) {
+      e.preventDefault();
+      alert("Por favor completa todos los campos.");
+    }
+  });
+</script>

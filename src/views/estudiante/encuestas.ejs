@@ -1,0 +1,50 @@
+
+<h2 class="text-2xl font-bold mb-6 text-blue-700">Encuestas: Votación para habilitar secciones</h2>
+
+<form action="/estudiante/encuestas" method="POST" class="bg-white p-6 rounded shadow space-y-6">
+  <!-- Selección de materia -->
+  <div>
+    <label for="materia" class="block font-semibold">Materia</label>
+    <select id="materia" name="materia" class="w-full border p-2 rounded" required>
+      <option value="">Seleccione una materia</option>
+      <option value="Matemáticas I">Matemáticas I</option>
+      <option value="Programación I">Programación I</option>
+      <option value="Bases de Datos">Bases de Datos</option>
+      <option value="Sistemas de Información">Sistemas de Información</option>
+    </select>
+  </div>
+
+  <!-- Selección de acción -->
+  <div>
+    <label for="accion" class="block font-semibold">Acción</label>
+    <select id="accion" name="accion" class="w-full border p-2 rounded" required>
+      <option value="">Seleccione una acción</option>
+      <option value="habilitar">Habilitar nueva sección</option>
+      <option value="aumentar">Aumentar cupos en sección existente</option>
+    </select>
+  </div>
+
+  <!-- Comentarios opcionales -->
+  <div>
+    <label for="comentario" class="block font-semibold">Comentario (opcional)</label>
+    <textarea id="comentario" name="comentario" rows="3" class="w-full border p-2 rounded"></textarea>
+  </div>
+
+  <!-- Botón de envío -->
+  <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">
+    Enviar voto
+  </button>
+</form>
+
+<!-- Script de validación -->
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    const materia = document.getElementById("materia").value;
+    const accion = document.getElementById("accion").value;
+
+    if (!materia || !accion) {
+      e.preventDefault();
+      alert("Por favor seleccione una materia y una acción antes de enviar.");
+    }
+  });
+</script>

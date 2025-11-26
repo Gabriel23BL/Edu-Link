@@ -1,12 +1,23 @@
-import express from 'express';
+import { Router } from 'express';
 import { ControladorUsuario } from '../Controller/ControllerUsuario.js';
+import { uploadFoto } from "../config/multer.js";
 
-const router = express.Router();
+const rutas = Router();
+
+/** Rutas API de Usuario */
 
 // Validar si un correo ya existe
-router.post('/api/validar-correo', ControladorUsuario.validarCorreo);
+rutas.post('/api/validar-correo', ControladorUsuario.validarCorreo);
 
 // Registrar un nuevo usuario
-router.post('/api/registro-usuario', ControladorUsuario.crearUsuario);
+rutas.post('/api/registro-usuario', ControladorUsuario.crearUsuario);
 
-export default router;
+// Cambiar clave
+rutas.post('/cambiar-clave', ControladorUsuario.cambiarClave);
+
+// Cargar foto de perfil
+rutas.post('/cargar-foto', uploadFoto.single("foto"), ControladorUsuario.cargarFoto);
+
+
+
+export default rutas;
