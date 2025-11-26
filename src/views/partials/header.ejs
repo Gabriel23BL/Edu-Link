@@ -2,10 +2,21 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
     <!-- Logo + Nombre -->
     <div class="flex items-center space-x-3">
-      <div class="bg-gray-50 rounded-full p-2">
-        <img src="/img/isotipo.png" alt="Logo EduLink" class="w-8 h-8">
-      </div>
-      <h1 class="text-xl font-bold bg-gradient-to-r from-sky-950 to-blue-500 text-transparent bg-clip-text"> <a href="/panel">EduLink</a></h1>
+      <% if (user) { %>
+        <div class="bg-gray-50 rounded-full p-2">
+          <img src="/img/isotipo.png" alt="Logo EduLink" class="w-8 h-8">
+        </div>
+        <h1 class="text-xl font-bold bg-gradient-to-r from-sky-950 to-blue-500 text-transparent bg-clip-text">
+          <a href="/estudiante/panel">EduLink</a>
+        </h1>
+      <% } else { %>
+        <div class="bg-gray-50 rounded-full p-2">
+          <img src="/img/isotipo.png" alt="Logo EduLink" class="w-8 h-8">
+        </div>
+        <h1 class="text-xl font-bold bg-gradient-to-r from-sky-950 to-blue-500 text-transparent bg-clip-text">
+          <a href="/">EduLink</a>
+        </h1>
+      <% } %>
     </div>
 
     <!-- Botón hamburguesa visible solo en sm -->
