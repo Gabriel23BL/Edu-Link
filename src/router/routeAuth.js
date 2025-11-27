@@ -14,7 +14,7 @@ rutas.post('/login', async (req, res) => {
   try {
     const { correo, clave } = req.body;
 
-    // Buscar usuario en BD (incluye foto)
+    // Buscar usuario en BD
     const usuario = await ModelUsuario.buscarPorCorreo(correo);
     if (!usuario) {
       return res.render('auth/login', { 
@@ -32,7 +32,7 @@ rutas.post('/login', async (req, res) => {
       });
     }
 
-    // Guardar usuario en sesión (incluyendo foto y id_usuario)
+    // Guardar usuario en sesión
     req.session.user = {
       id: usuario.id,
       nombre: usuario.nombre,

@@ -2,7 +2,7 @@ import conexion from '../db/conexion.js';
 import bcrypt from 'bcrypt';
 
 export class ModelUsuario {
-  // Crear usuario (recibe clave ya encriptada desde el controlador)
+  // Crear usuario
   static async crearUsuario({ nombre, correo, clave, id_usuario, rol }) {
     const query = `
       INSERT INTO usuarios (nombre, correo, clave, id_usuario, rol, foto)
@@ -10,7 +10,7 @@ export class ModelUsuario {
     `;
     try {
       const db = await conexion();
-      // Al crear usuario, inicializamos foto como null
+      // foto como null
       await db.run(query, [nombre, correo, clave, id_usuario, rol, null]);
       await db.close();
       return { status: "ok", message: "Usuario creado correctamente" };
@@ -20,7 +20,7 @@ export class ModelUsuario {
     }
   }
 
-  // Buscar usuario por correo (incluye foto)
+  // Buscar usuario por correo
   static async buscarPorCorreo(correo) {
     try {
       const db = await conexion();
@@ -37,7 +37,7 @@ export class ModelUsuario {
     }
   }
 
-  // Validar login (incluye foto)
+  // Validar login
   static async validarLogin(correo, clave) {
     try {
       const db = await conexion();

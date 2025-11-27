@@ -4,7 +4,6 @@ import path from "path";
 // Configuración de almacenamiento
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    // Construye la ruta relativa a tu proyecto
     cb(null, path.join(process.cwd(), "/uploads"));
   },
   filename: (req, file, cb) => {

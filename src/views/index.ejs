@@ -3,9 +3,20 @@
   <div class="overflow-hidden relative rounded-lg shadow-lg">
     <!-- Slides -->
     <div class="flex transition-transform duration-700 ease-in-out" id="carousel-slides">
-      <!-- Slide 1 -->
       <div class="w-full flex-shrink-0">
-        <img src="/img/hombre-carruselle.png" alt="carrusele-1" class="w-full h-64 md:h-[650px] object-cover">
+        <img src="/img/carruselle/img 1-bienvenida.png" alt="carrusele-1" class="w-full h-64 md:h-[715px] object-cover">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="/img/carruselle/img 2-solicitud de inscripcion.png" alt="carrusele-2" class="w-full h-64 md:h-[710px] object-cover">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="/img/carruselle/img 3-Adicion y Retiro.png" alt="carrusele-3" class="w-full h-64 md:h-[715px] object-cover">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="/img/carruselle/img 4-Actas Especiales.png" alt="carrusele-4" class="w-full h-64 md:h-[715px] object-cover">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="/img/carruselle/img 5-Encuestas.png" alt="carrusele-5" class="w-full h-64 md:h-[715px] object-cover">
       </div>
     </div>
 
@@ -15,6 +26,7 @@
   </div>
 </div>
 
+<!-- Sección de tarjetas -->
 
 <h2 class="text-3xl font-bold text-blue-900 mb-6">Realiza tus gestiones con nosotros</h2>
 
@@ -62,13 +74,24 @@
   </div>
 </div>
 
+
 <!-- Script carrusel -->
 <script>
   let currentSlide = 0;
+  const slides = document.getElementById("carousel-slides");
+  const totalSlides = slides.children.length;
+
   function moveSlide(direction) {
-    const slides = document.getElementById("carousel-slides");
-    const totalSlides = slides.children.length;
     currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    updateSlide();
+  }
+
+  function updateSlide() {
     slides.style.transform = `translateX(-${currentSlide * 100}%)`;
   }
+
+  // Cambio automático cada 10 segundos
+  setInterval(() => {
+    moveSlide(1);
+  }, 10000);
 </script>

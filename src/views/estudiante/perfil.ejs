@@ -1,18 +1,22 @@
 <div class="max-w-4xl mx-auto mt-10 bg-white rounded-lg shadow-lg p-8">
-  <!-- Encabezado -->
-  <div class="flex items-center space-x-6 mb-6">
+
+  <!-- Contenedor adaptable -->
+  <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-6 mb-6 space-y-4 md:space-y-0">
     <!-- Imagen de perfil clickable -->
     <form id="formFoto" action="/usuario/cargar-foto" method="POST" enctype="multipart/form-data">
       <label for="fotoInput" class="cursor-pointer">
         <img src="<%= user.foto || '/uploads/default.png' %>"
              alt="Foto de perfil" 
-             class="w-24 h-24 rounded-full border-4 border-blue-500 shadow hover:opacity-80 transition">
+             class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-4 border-blue-500 shadow 
+                    hover:opacity-80 transition object-cover">
       </label>
       <!-- Input oculto -->
-      <input type="file" id="fotoInput" name="foto" accept="image/*" class="hidden" onchange="document.getElementById('formFoto').submit()" />
+      <input type="file" id="fotoInput" name="foto" accept="image/*" 
+             class="hidden" onchange="document.getElementById('formFoto').submit()" />
     </form>
 
-    <div>
+    <!-- Datos del usuario -->
+    <div class="text-center md:text-left">
       <h2 class="text-2xl font-bold text-gray-800"><%= user?.nombre %></h2>
       <p class="text-gray-600"><%= user?.correo %></p>
       <span class="inline-block mt-2 px-3 py-1 text-sm rounded-full 

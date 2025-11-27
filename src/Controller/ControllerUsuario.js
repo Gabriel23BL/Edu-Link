@@ -7,7 +7,7 @@ export class ControladorUsuario {
     try {
       const { nombre, correo, clave, id_usuario, rol } = req.body;
 
-      // Normalizar rol recibido (texto)
+      // Normalizar rol recibido 
       let rolNormalizado = "estudiante";
       if (rol === "docente") rolNormalizado = "docente";
       else if (rol === "admin") rolNormalizado = "admin";

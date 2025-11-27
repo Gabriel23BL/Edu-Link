@@ -7,7 +7,7 @@ function ensureAuthenticated(req, res, next) {
   if (req.session?.user && req.session.user.rol === 'estudiante') {
     return next();
   }
-  res.redirect('/auth/login'); // redirige al login si no está autenticado
+  res.redirect('/auth/login'); 
 }
 
 // Panel principal del estudiante
